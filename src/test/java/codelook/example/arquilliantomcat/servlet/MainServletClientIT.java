@@ -15,8 +15,16 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import codelook.example.arquilliantomcat.ArquillianDeployment;
+
+/*
+ * Integration test using client side testing.
+ * The actual object instance of the class under test is not available
+ * but requests to the test server URL can be made.
+ * Deployed into an embedded application server.
+ */
 @RunWith(Arquillian.class)
-public class MainServletIT {
+public class MainServletClientIT {
 
 	@ArquillianResource(MainServlet.class)
 	URL contextPath;

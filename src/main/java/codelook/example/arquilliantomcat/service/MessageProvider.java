@@ -1,9 +1,16 @@
 package codelook.example.arquilliantomcat.service;
 
+import javax.inject.Inject;
+
+import codelook.example.arquilliantomcat.entity.Message;
+
 public class MessageProvider {
 
-	public String getMessage() {
+	@Inject
+	private Message message;
+	
+	public String getOutputMessage() {
 		
-		return "Hello World";
+		return message.getMessage();
 	}
 }

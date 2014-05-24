@@ -1,4 +1,4 @@
-package codelook.example.arquilliantomcat.servlet;
+package codelook.example.arquilliantomcat;
 
 import java.io.File;
 
@@ -28,6 +28,7 @@ public class ArquillianDeployment {
 						.importDirectory(LOCAL_WEBAPP_DIR)
 						.as(GenericArchive.class), "/", Filters.includeAll()
 						)
+				.addPackage(PACKAGE_NAME + ".entity")
 				.addPackage(PACKAGE_NAME + ".service")
 				.addPackage(PACKAGE_NAME + ".servlet")
 				.addAsLibraries(libs);

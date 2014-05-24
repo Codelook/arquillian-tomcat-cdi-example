@@ -20,7 +20,7 @@ public class MainServlet extends HttpServlet {
 	private MessageProvider messageProvider;
 	
 	@Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().append(messageProvider.getMessage());
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.getWriter().append(messageProvider.getOutputMessage());
     }
 }
