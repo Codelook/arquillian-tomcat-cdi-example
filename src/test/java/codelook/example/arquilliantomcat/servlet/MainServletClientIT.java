@@ -36,7 +36,7 @@ public class MainServletClientIT {
 	}
 
 	@Test
-	public void tryTest() throws IOException {
+	public void testDoGetRespondsSuccessfully() throws IOException {
 
 		InputStream stream = contextPath.openStream();
 		String resp = IOUtils.toString(stream);
