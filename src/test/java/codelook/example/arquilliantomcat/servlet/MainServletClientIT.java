@@ -27,7 +27,7 @@ import codelook.example.arquilliantomcat.ArquillianDeployment;
 public class MainServletClientIT {
 
 	@ArquillianResource(MainServlet.class)
-	URL contextPath;
+	private URL contextPath;
 
 	@Deployment(testable = false)
 	public static WebArchive init() {
@@ -38,9 +38,9 @@ public class MainServletClientIT {
 	@Test
 	public void testDoGetRespondsSuccessfully() throws IOException {
 
-		InputStream stream = contextPath.openStream();
-		String resp = IOUtils.toString(stream);
+		InputStream urlStream = contextPath.openStream();
+		String result = IOUtils.toString(urlStream);
 
-		assertThat(resp, is("Hello World"));
+		assertThat(result, is("Hello World"));
 	}
 }
