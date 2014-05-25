@@ -10,7 +10,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 
 public class ArquillianDeployment {
-	
+
 	private static final String LOCAL_WEBAPP_DIR = "src/main/webapp";
 	private static final String PACKAGE_NAME = "codelook.example.arquilliantomcat";
 
@@ -26,11 +26,10 @@ public class ArquillianDeployment {
 				.merge(	ShrinkWrap.create(GenericArchive.class)
 						.as(ExplodedImporter.class)
 						.importDirectory(LOCAL_WEBAPP_DIR)
-						.as(GenericArchive.class), "/", Filters.includeAll()
+						.as(GenericArchive.class),
+						Filters.includeAll()
 						)
-				.addPackage(PACKAGE_NAME + ".entity")
-				.addPackage(PACKAGE_NAME + ".service")
-				.addPackage(PACKAGE_NAME + ".servlet")
+				.addPackages(true, Package.getPackage(PACKAGE_NAME))
 				.addAsLibraries(libs);
 
 		return archive;
